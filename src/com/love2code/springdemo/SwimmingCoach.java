@@ -1,10 +1,17 @@
 package com.love2code.springdemo;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component("thatSillyCoach")
 public class SwimmingCoach implements Coach{
+	
+	@Autowired
+	@Qualifier("happyFortuneService")
 	private FortuneService fortuneService;
+	
+	
 
 	@Override
 	public String getWorkoutDetails() {
@@ -13,7 +20,7 @@ public class SwimmingCoach implements Coach{
 
 	@Override
 	public String getDailyFortune() {
-		return null;
+		return this.fortuneService.getFortune();
 	}
 	
 

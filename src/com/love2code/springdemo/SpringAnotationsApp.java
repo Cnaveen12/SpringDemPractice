@@ -11,6 +11,7 @@ public class SpringAnotationsApp {
 		Coach coach = context.getBean("thatSillyCoach",Coach.class);
 		
 		System.out.println(coach.getWorkoutDetails());
+		System.out.println(coach.getDailyFortune());
 		context.close();
 	}
 
